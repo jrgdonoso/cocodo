@@ -4,12 +4,17 @@ import { NgModule } from "@angular/core";
 
 import { FormParcelDeliveryComponent } from './components/form-parcel-delivery/form-parcel-delivery.component';
 import { IntranetRoutingModule } from './intranet-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 
 
 @NgModule({
     imports:[
-        IntranetRoutingModule
+        CommonModule,
+        IntranetRoutingModule,
+        ReactiveFormsModule
+        
     ],
     declarations:[
         IntranetComponent,

@@ -1,6 +1,39 @@
-<h3>¿Donde debemos retirar tu encomienda?</h3>
-<label>Calle</label>
-<input type="text" name="calle">
 
-<label>Comuna</label>
-<input type="text">
+<form [formGroup]="fFormParcelDelivery" (ngSubmit)="save($event)">
+    <label>¿Tipo de retiro?</label>
+    <label>Yo dejare mi encomienda en sucursal
+    <input type="radio" name='typeRetreat' value="client_go_branch" formControlName="typeRetreat">
+    </label>
+    <label> Retiro en domicilio
+    <input type="radio" name='typeRetreat'  value="retreat_at_home" formControlName="typeRetreat">
+    </label>
+    <div>
+        <h3>¿Donde debemos retirar tu encomienda?</h3>
+
+        <label>Calle</label>
+        <input type="text" name="street" formControlName="street">
+        <div *ngIf="fFormParcelDelivery.get('street')?.errors && fFormParcelDelivery.get('street')?.touched">
+            <div *ngIf="fFormParcelDelivery.get('street')?.hasError('required')">
+                Es un campo obligatorio
+            </div>
+        </div>
+
+        <label>Numero</label>
+        <input type="text" name="number" formControlName="number">
+
+        <label>Comuna</label>
+        <input type="text" name="commune" formControlName="commune">
+
+
+        <label>Departamento</label>
+        <input type="text" name="department" formControlName="department">
+
+        
+
+
+        <label>¿Quien entrega encomienda?</label>
+        <input type="text" name="howDelivers" formControlName="whoDelivers">
+    </div>
+    <!--[disabled]="fFormParcelDelivery.invalid"-->
+    <input type="submit" value="Guardar"  >
+</form>
